@@ -14,6 +14,8 @@
     "prettify": "prettier app/** --write --ignore-unknown"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.10",
+    "@heroicons/react": "^2.0.15",
     "@remix-run/cloudflare": "^1.12.0",
     "@remix-run/cloudflare-pages": "^1.12.0",
     "@remix-run/react": "^1.12.0",
