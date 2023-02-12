@@ -2,13 +2,15 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler",
     "dev": "remix build && run-p \"dev:*\"",
+    "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "typecheck": "tsc",
-    "wrangler": "wrangler pages dev ./public",
+    "wrangler": "wrangler pages dev --compatibility-date=2023-02-12 ./public",
     "prettify": "prettier app/** --write --ignore-unknown"
   },
   "dependencies": {
@@ -25,9 +27,11 @@
     "@remix-run/eslint-config": "^1.12.0",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
+    "concurrently": "^7.6.0",
     "eslint": "^8.27.0",
     "npm-run-all": "^4.1.5",
     "prettier": "2.8.4",
+    "tailwindcss": "^3.2.6",
     "typescript": "^4.8.4",
     "wrangler": "^2.2.1"
   },
