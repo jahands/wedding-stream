@@ -6,6 +6,7 @@ interface Wedding {
   id: string
   title: string
   streamId: string
+  isVod: boolean
 }
 interface Data extends Wedding {
   streamCustomerId: string
@@ -36,7 +37,7 @@ export default function Index() {
       <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
         <div className="px-4 py-5 sm:px-6">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
-            {data.title}
+            {data.title}{data.isVod ? ' (VOD)' : ''}
           </h1>
         </div>
         <div className="px-4 py-5 sm:p-6">
