@@ -33,26 +33,33 @@ export default function Index() {
   const streamUrl = `https://customer-${data.streamCustomerId}.cloudflarestream.com/${data.streamId}/iframe?preload=true&autoplay=true`
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
-        {data.title}
-      </h1>
-      <div style={{ position: 'relative', paddingTop: '56.25%' }}>
-        <iframe
-          title="LiveStream"
-          src={streamUrl}
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-          allowFullScreen={true}
-          id="stream-player"
-        ></iframe>
-      </div>
-      <script src="https://embed.cloudflarestream.com/embed/sdk.latest.js"></script>
-      <br></br>
-      <div className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-        <p className="font-bold">Stream not working?</p>
-        <p className="text-sm">
-          If the stream does not start playing automatically, <b>try refreshing the page.</b> The recording will also be made available within 24 hours after the wedding.
-        </p>
+      <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+        <div className="px-4 py-5 sm:px-6">
+          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+            {data.title}
+          </h1>
+        </div>
+        <div className="px-4 py-5 sm:p-6">
+          <div style={{ position: 'relative', paddingTop: '56.25%' }}>
+            <iframe
+              title="LiveStream"
+              src={streamUrl}
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+              allowFullScreen={true}
+              id="stream-player"
+            ></iframe>
+          </div>
+          <script src="https://embed.cloudflarestream.com/embed/sdk.latest.js"></script>
+          <br></br>
+          <div className="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+            <p className="font-bold">Stream not working?</p>
+            <p className="text-sm">
+              If the stream does not start playing automatically, <b>try refreshing the page.</b> The recording will
+              also be made available within 24 hours after the wedding.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
