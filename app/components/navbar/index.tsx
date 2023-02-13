@@ -1,7 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [{ name: 'Watch', href: '/', current: true }]
+const navigation = [{ name: 'WeddingLiveFeed.com', href: '/', current: true }]
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
