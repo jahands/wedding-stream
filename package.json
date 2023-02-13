@@ -10,7 +10,7 @@
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "typecheck": "tsc",
-    "wrangler": "wrangler pages dev --compatibility-date=2023-02-12 ./public",
+    "wrangler": "wrangler pages dev --compatibility-date=2023-02-12 --kv WEDDING --persist-to=./.cache/kv-data ./public",
     "prettify": "prettier app/** --write --ignore-unknown"
   },
   "dependencies": {

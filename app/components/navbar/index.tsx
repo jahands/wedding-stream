@@ -1,10 +1,7 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
-  { name: 'Watch', href: '#', current: true },
-  { name: 'Admin', href: '#', current: false },
-]
+const navigation = [{ name: 'Watch', href: '/', current: true }]
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
