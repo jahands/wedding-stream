@@ -12,8 +12,18 @@ interface Data extends Wedding {
   streamCustomerId: string
 }
 
-export const loader = async ({ context, params }: LoaderArgs) => {
-  // @ts-ignore This is supposed to work..
+interface Env {
+  STREAM_CUSTOMER_ID: string
+  WEDDING: KVNamespace
+}
+
+interface Context {
+  context: Env
+}
+
+export const loader = async ({ context, params }: LoaderArgs & Context) => {
+  if (!params.watchId) throw new Response('Not Found', { status: 404, statusText: 'Wedding not found' })
+
   const wedding = await context.WEDDING.get<Wedding>(params.watchId, {
     type: 'json',
   })
@@ -37,7 +47,8 @@ export default function Index() {
       <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
         <div className="px-4 py-5 sm:px-6">
           <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
-            {data.title}{data.isVod ? ' (VOD)' : ''}
+            {data.title}
+            {data.isVod ? ' (VOD)' : ''}
           </h1>
         </div>
         <div className="px-4 py-5 sm:p-6">
